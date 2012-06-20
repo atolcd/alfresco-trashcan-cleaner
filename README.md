@@ -14,7 +14,7 @@ If you use an Enterprise Edition, and have credentials to the private Maven repo
 
 Installing the module
 ---------------------
-Trashcan Cleaner is a standard Alfresco Module, so experienced users can skip these steps and procede as usual.
+Trashcan Cleaner is a standard Alfresco Module, so experienced users can skip these steps and proceed as usual.
 
 1. Stop Alfresco
 2. Use the Alfresco [Module Management Tool](http://wiki.alfresco.com/wiki/Module_Management_Tool) to install the module in your Alfresco WAR file:
