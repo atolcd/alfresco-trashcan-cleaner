@@ -32,13 +32,13 @@
 			<value>7</value>
 		</property>
 		<property name="storeUrl">
-			<value>workspace://SpacesStore</value>
+			<value>archive://SpacesStore</value>
 		</property>
 	</bean>
 
 	<bean id="trashcanCleanerJobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
 		<property name="jobClass">
-			<value>org.alfresco.repo.content.cleanup.TrashcanCleanerJob</value>
+			<value>com.atolcd.alfresco.trashcancleaner.TrashcanCleanerJob</value>
 		</property>
 		<property name="jobDataAsMap">
 			<map>
