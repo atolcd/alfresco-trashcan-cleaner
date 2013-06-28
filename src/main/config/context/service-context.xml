@@ -12,6 +12,17 @@
 	language governing permissions and limitations under the License. -->
 <beans>
 
+	<bean name="trashcanCleanerPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders">
+			<value>true</value>
+		</property>
+		<property name="locations">
+			<list>
+				<value>classpath:alfresco/module/${artifactId}/trashcan-cleaner.properties</value>
+			</list>
+		</property>
+	</bean>
+
 	<bean id="trashcanCleaner" class="com.atolcd.alfresco.trashcancleaner.TrashcanCleaner">
 		<property name="namespaceService">
 			<ref bean="namespaceService" />
@@ -29,7 +40,7 @@
 			<ref bean="TransactionService" />
 		</property>
 		<property name="protectedDays">
-			<value>7</value>
+			<value>${trashcan.cleaner.protected.day}</value>
 		</property>
 		<property name="storeUrl">
 			<value>archive://SpacesStore</value>
@@ -57,7 +68,7 @@
 		</property>
 		<!-- trigger at 4am each day -->
 		<property name="cronExpression">
-			<value>0 0 4 * * ?</value>
+			<value>${trashcan.cleaner.cron}</value>
 		</property>
 	</bean>
 
