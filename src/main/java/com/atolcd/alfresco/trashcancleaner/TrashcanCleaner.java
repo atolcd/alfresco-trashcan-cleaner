@@ -118,7 +118,7 @@ public class TrashcanCleaner {
 					.getStoreArchiveNode(storeRef);
 			sp.addStore(archiveRootRef.getStoreRef());
 			if (logger.isDebugEnabled()) {
-				logger.debug("Trashcan cleaner query : ");
+				logger.debug("Trashcan cleaner query: ");
 				logger.debug(query);
 			}
 
@@ -132,11 +132,17 @@ public class TrashcanCleaner {
 				results = this.searchService.query(sp);
 				List<NodeRef> deletedItemsToPurge = results.getNodeRefs();
 				if (logger.isInfoEnabled()) {
-					logger.info("Trashcan Cleaner is about to purge the following items :");
-					for (NodeRef item : deletedItemsToPurge) {
-						String itemName = (String) this.nodeService
-								.getProperty(item, ContentModel.PROP_NAME);
-						logger.info(" - " + itemName);
+					int itemsToPurge = deletedItemsToPurge.size();
+
+					if (itemsToPurge > 0) {
+						logger.info("Trashcan Cleaner is about to purge " + itemsToPurge + " items.");
+						logger.info("Items to purge:");
+						for (NodeRef item : deletedItemsToPurge) {
+							String itemName = (String) this.nodeService.getProperty(item, ContentModel.PROP_NAME);
+							logger.info(" - " + itemName);
+						}
+					} else {
+						logger.info("There's no items to purge.");
 					}
 				}
 				this.nodeArchiveService.purgeArchivedNodes(deletedItemsToPurge);
@@ -144,7 +150,7 @@ public class TrashcanCleaner {
 				tx.commit();
 			} catch (Throwable err) {
 				if (logger.isWarnEnabled())
-					logger.warn("Error while cleaning the trashcan : "
+					logger.warn("Error while cleaning the trashcan: "
 							+ err.getMessage());
 				try {
 					if (tx != null) {
@@ -152,7 +158,7 @@ public class TrashcanCleaner {
 					}
 				} catch (Exception tex) {
 					if (logger.isWarnEnabled())
-						logger.warn("Error while during the rollback : "
+						logger.warn("Error while during the rollback: "
 								+ tex.getMessage());
 				}
 			} finally {
