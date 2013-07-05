@@ -4,6 +4,10 @@ Alfresco Trashcan Cleaner Module
 
 This Alfresco module periodically purges the Alfresco trashcan.
 
+Works with:  
+ - Alfresco Community 3.x and 4.x
+ - Alfresco Enterprise 3.x and 4.x
+
 Building the module
 -------------------
 By default, `mvn package` will build the AMP file against Alfresco Community 3.4.e. This can be changed via the Maven property `alfresco.version`.
