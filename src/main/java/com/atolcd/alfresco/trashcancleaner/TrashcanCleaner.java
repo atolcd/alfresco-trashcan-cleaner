@@ -116,6 +116,12 @@ public class TrashcanCleaner {
 
 			NodeRef archiveRootRef = this.nodeArchiveService
 					.getStoreArchiveNode(storeRef);
+
+			if (archiveRootRef == null) {
+				storeRef = StoreRef.STORE_REF_WORKSPACE_SPACESSTORE;
+				archiveRootRef = this.nodeArchiveService.getStoreArchiveNode(storeRef);
+			}
+
 			sp.addStore(archiveRootRef.getStoreRef());
 			if (logger.isDebugEnabled()) {
 				logger.debug("Trashcan cleaner query: ");
