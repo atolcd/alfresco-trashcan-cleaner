@@ -2,7 +2,7 @@
 Alfresco Trashcan Cleaner Module
 ================================
 
-This Alfresco module periodically purges the Alfresco trashcan.
+This Alfresco module periodically purges old content from the Alfresco trashcan.
 
 Works with:  
  - Alfresco Community 3.x and 4.x
