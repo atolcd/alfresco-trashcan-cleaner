@@ -2,7 +2,7 @@
 Alfresco Trashcan Cleaner Module
 ================================
 
-This Alfresco module periodically purges the Alfresco trashcan.
+This Alfresco module periodically purges old content from the Alfresco trashcan.
 
 Works with:  
  - Alfresco Community 3.x and 4.x
@@ -33,7 +33,17 @@ Using the module
 ---------------------
 The default configuration enclosed with the AMP file launches the Trashcan Cleaner each day at 4am, and deletes the items one week after they have been put in the trashcan.
 
-This configuration can be overriden by copying the *trashcanCleaner* bean in a Spring context file in your `$TOMCAT_HOME/shared/classes/alfresco/extension` folder, and then changing the value of these two configuration items:
+This configuration can be overriden in several ways. Probably the simplest is to add and update the following properties to your alfresco-global.properties file:
+
+```
+# Trigger at 4am each day
+trashcan.cleaner.cron=0 0 4 * * ?
+
+# Duration, in days, during which deleted items will be protected
+trashcan.cleaner.protected.day=7
+```
+
+Alternatively, you can copying the *trashcanCleaner* bean into a Spring context file in your `$TOMCAT_HOME/shared/classes/alfresco/extension` folder, and then changing the value of these two configuration items:
 
 * protectedDays, the number of days an item can stay in the trashcan;
 * cronExpression, the [Quartz-style CRON](http://wiki.alfresco.com/wiki/Scheduled_Actions#Cron_Explained) expression which launches the deletion.
