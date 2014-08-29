@@ -4,17 +4,17 @@ Alfresco Trashcan Cleaner Module
 
 This Alfresco module periodically purges old content from the Alfresco trashcan.
 
-Works with:  
+Works with:
+
  - Alfresco Community 3.x and 4.x
  - Alfresco Enterprise 3.x and 4.x
 
 Building the module
 -------------------
-By default, `mvn package` will build the AMP file against Alfresco Community 3.4.e. This can be changed via the Maven property `alfresco.version`.
+By default, `mvn package` will build the AMP file against Alfresco Community 4.2.e. This can be changed via the Maven property `alfresco.version`.
 
-If you use an Enterprise Edition, and have credentials to the private Maven repository, you can use the *enterprise* profile, which by default uses Alfresco Enterprise 3.4.9:
-
-    mvn package -P enterprise
+Building with older *enterprise* versions will require to use the org.alfresco.enterprise groupId in the dependencies.
+Usage of an *enterprise* version will require to have credentials to the Alfresco private Maven repository.
 
 Installing the module
 ---------------------
@@ -24,7 +24,7 @@ Trashcan Cleaner is a standard Alfresco Module, so experienced users can skip th
 2. Use the Alfresco [Module Management Tool](http://wiki.alfresco.com/wiki/Module_Management_Tool) to install the module in your Alfresco WAR file:
 
         java -jar alfresco-mmt.jar /path/to/amp/trashcanCleaner.amp $TOMCAT_HOME/webapps/alfresco.war
-    
+
 3. Delete the `$TOMCAT_HOME/webapps/alfresco/` folder.
 **Caution:** Please ensure you do not have custom files in the `$TOMCAT_HOME/webapps/alfresco/` folder before deleting
 4. Start Alfresco
