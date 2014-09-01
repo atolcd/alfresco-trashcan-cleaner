@@ -31,6 +31,13 @@
     <alfresco.groupId>org.alfresco</alfresco.groupId>
   </properties>
 
+  <repositories>
+    <repository>
+      <id>alfresco-public</id>
+      <url>http://artifacts.alfresco.com/nexus/content/groups/public</url>
+    </repository>
+  </repositories>
+
   <build>
     <finalName>${project.groupId}.${project.artifactId}-${project.version}</finalName>
     <plugins>
