@@ -29,7 +29,6 @@
     <alfresco-maven.version>1.1.2</alfresco-maven.version>
     <!-- Older Alfresco versions compatibility -->
     <alfresco.groupId>org.alfresco</alfresco.groupId>
-    <spring.version>3.0.5.RELEASE</spring.version>
   </properties>
 
   <build>
@@ -93,37 +92,6 @@
       <groupId>${alfresco.groupId}</groupId>
       <artifactId>alfresco-data-model</artifactId>
       <version>${alfresco.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <!-- Older Alfresco compatibility -->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-core</artifactId>
-      <version>${spring.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-beans</artifactId>
-      <version>${spring.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>javax.transaction</groupId>
-      <artifactId>jta</artifactId>
-      <version>1.0.1B</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
-      <version>1.1</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.quartz-scheduler</groupId>
-      <artifactId>quartz</artifactId>
-      <version>1.8.3-alfresco-patched</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
