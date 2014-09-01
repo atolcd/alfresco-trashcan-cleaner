@@ -6,8 +6,8 @@ This Alfresco module periodically purges old content from the Alfresco trashcan.
 
 Works with:
 
- - Alfresco Community 3.x and 4.x
- - Alfresco Enterprise 3.x and 4.x
+ - Alfresco Community from 4.2.d
+ - Alfresco Enterprise from 4.1.5
 
 Building the module
 -------------------
@@ -43,7 +43,7 @@ trashcan.cleaner.cron=0 0 4 * * ?
 trashcan.cleaner.protected.day=7
 ```
 
-Alternatively, you can copying the *trashcanCleaner* bean into a Spring context file in your `$TOMCAT_HOME/shared/classes/alfresco/extension` folder, and then changing the value of these two configuration items:
+Alternatively, you can copy the *trashcanCleaner* bean into a Spring context file in your `$TOMCAT_HOME/shared/classes/alfresco/extension` folder, and then change the value of these two configuration items:
 
 * protectedDays, the number of days an item can stay in the trashcan;
 * cronExpression, the [Quartz-style CRON](http://wiki.alfresco.com/wiki/Scheduled_Actions#Cron_Explained) expression which launches the deletion.

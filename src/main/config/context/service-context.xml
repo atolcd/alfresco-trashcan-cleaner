@@ -36,6 +36,9 @@
         <entry key="trashcanCleaner">
           <ref bean="trashcanCleaner" />
         </entry>
+        <entry key="jobLockService">
+          <ref bean="jobLockService" />
+        </entry>
       </map>
     </property>
   </bean>

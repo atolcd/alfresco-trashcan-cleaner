@@ -2,14 +2,15 @@ package com.atolcd.alfresco.trashcancleaner;
 
 import org.alfresco.error.AlfrescoRuntimeException;
 import org.alfresco.repo.security.authentication.AuthenticationUtil;
-import org.quartz.Job;
+import org.alfresco.schedule.AbstractScheduledLockedJob;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-public class TrashcanCleanerJob implements Job {
+public class TrashcanCleanerJob extends AbstractScheduledLockedJob {
 
-  public void execute(JobExecutionContext context) throws JobExecutionException {
+  @Override
+  public void executeJob(JobExecutionContext context) throws JobExecutionException {
     JobDataMap jobData = context.getJobDetail().getJobDataMap();
     // extract the content cleaner to use
     Object trashcanCleanerObj = jobData.get("trashcanCleaner");
@@ -20,14 +21,10 @@ public class TrashcanCleanerJob implements Job {
     final TrashcanCleaner trashcanCleaner = (TrashcanCleaner) trashcanCleanerObj;
 
     AuthenticationUtil.runAs(new AuthenticationUtil.RunAsWork<Object>() {
-      /* (non-Javadoc)
-       * @see org.alfresco.repo.security.authentication.AuthenticationUtil.RunAsWork#doWork()
-       */
       public Object doWork() throws Exception {
         trashcanCleaner.execute();
         return null;
       }
     }, AuthenticationUtil.getSystemUserName());
   }
-
 }
