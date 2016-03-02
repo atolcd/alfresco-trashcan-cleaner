@@ -38,6 +38,19 @@
     </repository>
   </repositories>
 
+  <distributionManagement>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://nexus/content/repositories/releases/</url>
+      <name>Releases</name>
+    </repository>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <url>http://nexus/content/repositories/snapshots/</url>
+      <name>Snapshots</name>
+    </snapshotRepository>
+  </distributionManagement>
+
   <build>
     <finalName>${project.groupId}.${project.artifactId}-${project.version}</finalName>
     <plugins>
