@@ -34,19 +34,19 @@
   <repositories>
     <repository>
       <id>alfresco-public</id>
-      <url>http://artifacts.alfresco.com/nexus/content/groups/public</url>
+      <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
     </repository>
   </repositories>
 
   <distributionManagement>
     <repository>
       <id>nexus-releases</id>
-      <url>http://nexus/content/repositories/releases/</url>
+      <url>https://nexus/content/repositories/releases/</url>
       <name>Releases</name>
     </repository>
     <snapshotRepository>
       <id>nexus-snapshots</id>
-      <url>http://nexus/content/repositories/snapshots/</url>
+      <url>https://nexus/content/repositories/snapshots/</url>
       <name>Snapshots</name>
     </snapshotRepository>
   </distributionManagement>
